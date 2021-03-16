@@ -4,19 +4,19 @@ import java.util.*;
 
 public class AlienDictionary {
 	
-	Set <Word>dizionario= new HashSet<Word>();
+	Set <WordEnhanced>dizionario= new HashSet<WordEnhanced>();
 	
 	
 	public void addWord(String alienWord, String translation) {
-		Word parola = new Word();
+		WordEnhanced parola = new WordEnhanced();
 		parola.setAlienWord(alienWord);
-		parola.setTranslation(translation);
+		parola.translation.add(translation);
 		boolean trovata=false;
-		for(Word w:dizionario)
+		for(WordEnhanced w:dizionario)
 		{
 		  if(parola.equals(w))
 		  {
-			w.setTranslation(translation);
+			w.translation.add(translation);
 		    trovata = true;
 		  }
 		}
@@ -28,8 +28,8 @@ public class AlienDictionary {
 		
 	}
 	
-	public String translateWord(String alienWord) {
-		for(Word w:dizionario)
+	public List<String> translateWord(String alienWord) {
+		for(WordEnhanced w:dizionario)
 		{
 		  if(alienWord.equals(w.getAlienWord()))
 		  {

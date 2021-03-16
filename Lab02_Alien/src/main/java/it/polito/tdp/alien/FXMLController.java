@@ -1,5 +1,7 @@
 package it.polito.tdp.alien;
 
+import java.util.List;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -24,6 +26,9 @@ public class FXMLController {
 
     @FXML
     void doClear(ActionEvent event) {
+    	this.txtArea.setText("");
+    	this.txtInserito.setText("");
+    	
 
     }
 
@@ -42,8 +47,13 @@ public class FXMLController {
         		this.txtArea.setText("Le parole devono contenere solo lettere");
         		return;
         	}
-    		String translation= diz.translateWord(array[0]);
-    		this.txtArea.setText(translation);
+    		List<String> translation= diz.translateWord(array[0]);
+    		String trad="";
+    		for(String s:translation)
+    		{
+    			trad=trad+s+"\n";
+    		}
+    		this.txtArea.setText(trad);
     	}
     	else if(array.length==2)
     	{

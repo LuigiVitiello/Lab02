@@ -1,9 +1,12 @@
 package it.polito.tdp.alien;
 
-public class Word {
+import java.util.LinkedList;
+import java.util.List;
+
+public class WordEnhanced {
 	
 	private String alienWord;
-	private String translation;
+	List<String>translation = new LinkedList<String>();
 
 	@Override
 	public int hashCode() {
@@ -20,7 +23,7 @@ public class Word {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Word other = (Word) obj;
+		WordEnhanced other = (WordEnhanced) obj;
 		if (alienWord == null) {
 			if (other.alienWord != null)
 				return false;
@@ -34,12 +37,13 @@ public class Word {
 	public void setAlienWord(String alienWord) {
 		this.alienWord = alienWord;
 	}
-	public String getTranslation() {
+	public List<String> getTranslation() {
 		return translation;
 	}
-	public void setTranslation(String translation) {
+	public void setTranslation(List<String> translation) {
 		this.translation = translation;
 	}
+
 	
 
 }
